@@ -10,7 +10,7 @@ import {
 import Root from "./routes/root";
 import ErrorPage from "./ErrorPage";
 import UserPage from "./routes/UserPage";
-import { loadUsers, createUser } from "./actions/users";
+import {loadUsers, createUser, fetchUser} from "./actions/users";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +21,8 @@ const router = createBrowserRouter([
     action: createUser,
     children: [{
       path: '/users/:userId',
-      element: <UserPage />
+      element: <UserPage />,
+      loader: fetchUser,
     }]
   },
 ]);

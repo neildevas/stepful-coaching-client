@@ -33,3 +33,12 @@ export async function createUser() {
     return null; //how to handle error
   }
 }
+
+export async function fetchUser({ params }: { params: any }) {
+  try {
+    const user = await stepfulFetch(`/users/${params.userId}`);
+    return { user }
+  } catch (err) {
+    return null;
+  }
+}
