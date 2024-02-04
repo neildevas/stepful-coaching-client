@@ -1,25 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import { Box, Flex, Heading } from "@chakra-ui/react";
+import {User} from "./types";
 
 function App() {
+  const [users, setUsers] = useState<User[]>([]);
+  // Fetch all users here
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <Flex>
+      <Box flex="1" p="4" ml="250px">
+        <Heading>Main Content</Heading>
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          {/* Your main content goes here */}
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+          aliquet nisi id tristique efficitur.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      </Box>
+    </Flex>
   );
 }
 
