@@ -8,6 +8,7 @@ import {User} from "../types";
 
 export default function Root() {
   const { users } = useLoaderData() as { users?: User[] };
+  console.log('USERS', users);
   return (
     <Flex>
       <Box

@@ -3,11 +3,12 @@ const API_URL = 'http://localhost:3001';
 
 const makeUrl = (path: string) => `${API_URL}${path}`;
 
-const stepfulFetch = async (path: string, data?: RequestInit) => {
+export const stepfulFetch = async (path: string, data?: RequestInit) => {
   const url = makeUrl(path);
   const response = await fetch(url, data);
   return response.json();
 }
+
 export async function loadUsers() {
   try {
     const users = await stepfulFetch('/users');
