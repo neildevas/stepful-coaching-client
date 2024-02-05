@@ -14,14 +14,23 @@ type Coach = { id: number; user_id: number };
 
 export type Appointment = {
   id: number;
-  status: string;
   coach_id: string;
   start_time: string;
   end_time: string;
+  student_satisfaction_rating: number | null;
+  status: 'inactive' | 'active' | 'ended',
+  notes: string | null;
   Coach: {
     User: {
       name: string;
       email: string;
     }
-  }
+  },
+  Student?: {
+    User: {
+      name: string;
+      email: string;
+      id: number
+    }
+  } | null
 }

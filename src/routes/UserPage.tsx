@@ -6,6 +6,8 @@ import BookAppointment from "../components/BookAppointment";
 import ViewAppointmentsStudent from "../components/ViewAppointmentsStudent";
 import {useCallback, useState} from "react";
 import {stepfulFetch} from "../actions/users";
+import AddAppointment from "../components/AddAppointment";
+import ViewAppointmentsCoach from "../components/ViewAppointmentsCoach";
 
 // Assumes a user will either have a student or a coach
 export default function UserPage() {
@@ -26,12 +28,12 @@ export default function UserPage() {
       <Heading size={'md'} mb={16}>
         Welcome {user.name}!
       </Heading>
-      {Coach ? <CoachDashboard /> : <StudentDashboard user={user} />}
+      {Coach ? <CoachDashboard user={user} /> : <StudentDashboard user={user} />}
     </Flex>
   )
 }
 
-const CoachDashboard = () => (
+const CoachDashboard = ({ user }: { user: User }) => (
   <Tabs>
     <TabList>
       <Tab>Add an appointment</Tab>
@@ -39,10 +41,10 @@ const CoachDashboard = () => (
     </TabList>
     <TabPanels>
       <TabPanel>
-        <p>Add an appointment here</p>
+        <AddAppointment />
       </TabPanel>
       <TabPanel>
-        <p>View and edit your appointments here</p>
+        <ViewAppointmentsCoach user={user} />
       </TabPanel>
     </TabPanels>
   </Tabs>

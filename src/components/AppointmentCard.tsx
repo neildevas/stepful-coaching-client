@@ -14,8 +14,8 @@ export const AppointmentCard = ({appointment, onBook, isBooked}: Props) => {
     <Card>
       <CardBody>
         <Text>With coach: {Coach.User.name}</Text>
-        <Text>Start time: {moment(start_time).format('MM/DD/YYYY HH:mm')}</Text>
-        <Text>End time: {moment(end_time).format('MM/DD/YYYY HH:mm')}</Text>
+        <Text>Start time: {moment(start_time).format('MMMM Do YYYY, h:mm a')}</Text>
+        <Text>End time: {moment(end_time).format('MMMM Do YYYY, h:mm a')}</Text>
       </CardBody>
       {!isBooked && (
         <CardFooter>
