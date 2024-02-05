@@ -54,7 +54,7 @@ const ViewAppointmentsCoach: React.FC<Props> = ({ user }) => {
   const upComingAppointments: Appointment[] = [];
   const pastAppointments: Appointment[] = [];
   appointments.forEach(appt => {
-    if (moment(appt.start_time).isAfter(moment())) {
+    if (moment(appt.start_time).isAfter(moment()) && appt.status !== 'ended') {
       upComingAppointments.push(appt);
     } else {
       pastAppointments.push(appt);
@@ -75,7 +75,7 @@ const ViewAppointmentsCoach: React.FC<Props> = ({ user }) => {
         </VStack>
       </Box>
       <Box>
-        <Heading>Past and Current Appointments</Heading>
+        <Heading>Past, Current, and Ended Appointments</Heading>
         <VStack>
           {pastAppointments.map(it => (
             <CoachAppointmentCard appointment={it} key={it.id} onEnd={() => editAppointment(it.id, { status: 'ended'} )} editAppointment={(values) => editAppointment(it.id, values)} />
