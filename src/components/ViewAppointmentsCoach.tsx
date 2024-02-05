@@ -62,6 +62,8 @@ const ViewAppointmentsCoach: React.FC<Props> = ({ user }) => {
   });
 
   return (
+    <>
+    <Button colorScheme={"blue"} onClick={fetchAppointments}>Refetch appointments</Button>
     <VStack spacing={'80px'}>
       <Box>
         <Heading>Upcoming Appointments</Heading>
@@ -81,6 +83,7 @@ const ViewAppointmentsCoach: React.FC<Props> = ({ user }) => {
         </VStack>
       </Box>
     </VStack>
+    </>
   )
 }
 

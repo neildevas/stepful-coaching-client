@@ -41,7 +41,7 @@ const CoachDashboard = ({ user }: { user: User }) => (
     </TabList>
     <TabPanels>
       <TabPanel>
-        <AddAppointment />
+        <AddAppointment user={user} />
       </TabPanel>
       <TabPanel>
         <ViewAppointmentsCoach user={user} />
